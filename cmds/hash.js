@@ -35,7 +35,7 @@ ${message()}`
     shell.exec(`git reset --hard ${hash()}`)
     // shell.echo(commitHash().grep('GLOBAL_VARIABL', `^[0]{6}`))
     testForZeroes = commitHash().slice(0,1)
-    // shell.echo(`${commitHash()} ${testForZeroes}`)
+    shell.echo(`${testForZeroes}`)
   }
   shell.config.silent = silentState
 
