@@ -8,6 +8,9 @@ module.exports = () => {
     case 'today':
       require('./cmds/today')(args)
       break
+    case 'hash':
+      require('./cmds/hash')(args)
+      break
     default:
       console.error(`"${cmd}" is not a valid command!`)
       break
