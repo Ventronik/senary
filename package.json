@@ -1,0 +1,26 @@
+{
+  "name": "senary",
+  "version": "1.0.0",
+  "description": "Git Chain Problem from PlanetScale",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ventronik/gitchain.git"
+  },
+  "author": "Dustin \"Ventronik\" Ruskell",
+  "license": "ISC",
+  "bin": {
+    "outside": "bin/outside"
+  },
+  "bugs": {
+    "url": "https://github.com/Ventronik/gitchain/issues"
+  },
+  "homepage": "https://github.com/Ventronik/gitchain#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "npm": "^6.5.0"
+  }
+}
