@@ -5,6 +5,7 @@ userName = spawn('git', ['config', 'user.name', 'Batman']),
 userEmail = spawn('git', ['config', 'user.email', 'batman@gotham.com']),
 g = spawn('git', ['commit', '-am', "Jooooooker"]);
 
+
 userName.stdout.on('data', function (data) {
   console.log('User Name stdout: ' + data);
 });
