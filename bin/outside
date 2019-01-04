@@ -1,2 +1,85 @@
 #!/usr/bin/env node
-require('../')()
+
+var  spawn = require('child_process').spawn,
+un = spawn('git', ['config', 'user.name', 'Batman']),
+ue = spawn('git', ['config', 'user.email', 'batman@gotham.com']),
+g = spawn('git', ['commit', '-am', "Jooooooker"]);
+
+un.stdout.on('data', function (data) {
+  console.log('un stdout: ' + data);
+});
+
+ue.stdout.on('data', function (data) {
+  console.log('ue stdout: ' + data);
+});
+
+g.stdout.on('data', function (data) {
+  console.log('g stdout: ' + data);
+});
+
+un.stderr.on('data', function (data) {
+  console.log('un stderr: ' + data);
+});
+
+ue.stderr.on('data', function (data) {
+  console.log('ue stderr: ' + data);
+});
+
+g.stderr.on('data', function (data) {
+  console.log('g stderr: ' + data);
+});
+
+un.on('exit', function (code) {
+  console.log('un child process exited with code ' + code);
+});
+
+ue.on('exit', function (code) {
+  console.log('ue child process exited with code ' + code);
+});
+
+g.on('exit', function (code) {
+  console.log('ug child process exited with code ' + code);
+});
+
+// git logs, parse stdout, and use jQuery Global plugin v1.0.0pre.
+
+var spawn = require('child_process').spawn,
+g = spawn('git', ['log', 'articles/node-is-sweet.markdown']),
+
+// date and fr modules are jQuery.global plugins ported to node
+date = require('./global'),
+fr = require('./fr');
+
+g.stdout.on('data', function (s) {
+
+  s = s.toString();
+
+  var commits = s.split(/\n\nc/);
+
+  commits.forEach(function(mit){
+    mit = /^c/.test(mit) ? mit : 'c' + mit;
+
+    var commit = mit.match(/[\da-f]{40}/),
+    author = mit.match(/Author:\s([^<]+)?/),
+    d = mit.match(/Date:\s*(.+)/),
+    comment = mit.match(/\n\n\s*(.+)/);
+
+    console.log('commit: ', commit[0]);
+    console.log('author: ', author[1]);
+    console.log('date: ', date.format(new Date(d[1]), 'F', 'fr'));
+    console.log('comment: ', comment[1]);
+
+    console.log('\n\n');
+  });
+
+
+
+});
+
+g.stderr.on('data', function (data) {
+  console.log('g stderr: ' + data);
+});
+
+g.on('exit', function (code) {
+  console.log('ug child process exited with code ' + code);
+});
