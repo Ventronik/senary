@@ -2,7 +2,7 @@
 
 var  spawn = require('child_process').spawn,
 userName = spawn('git', ['config', '--get', 'user.name']),
-userEmail = spawn('git', ['config', 'user.email', 'batman@gotham.com']),
+userEmail = spawn('git', ['config', '--get', 'user.email']),
 g = spawn('git', ['commit', '-am', "Jooooooker"]);
 
 
