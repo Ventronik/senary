@@ -51,6 +51,7 @@ g = spawn('git', ['log'])
 // date = require('./global'),
 // fr = require('./fr');
 
+ 
 g.stdout.on('data', function (s) {
 
   s = s.toString();
