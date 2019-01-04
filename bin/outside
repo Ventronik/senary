@@ -45,7 +45,7 @@ g.on('exit', function (code) {
 // git logs, parse stdout, and use jQuery Global plugin v1.0.0pre.
 
 var spawn = require('child_process').spawn,
-g = spawn('git', ['log', 'articles/node-is-sweet.markdown'])
+g = spawn('git', ['log'])
 
 // date and fr modules are jQuery.global plugins ported to node
 // date = require('./global'),
