@@ -10,5 +10,4 @@ module.exports = (args) => {
                console.log('exec error: ' + error);
           }
       });
-   // child();
 }
