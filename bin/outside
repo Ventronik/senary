@@ -3,7 +3,7 @@
 var  spawn = require('child_process').spawn,
 userName = spawn('git', ['config', '--get', 'user.name']),
 userEmail = spawn('git', ['config', '--get', 'user.email']),
-g = spawn('git', ['commit', '-am', "Jooooooker"]);
+git = spawn('git', ['commit', '-am', "Jooooooker"]);
 
 
 userName.stdout.on('data', function (data) {
@@ -14,7 +14,7 @@ userEmail.stdout.on('data', function (data) {
   console.log('User email stdout: ' + data);
 });
 
-g.stdout.on('data', function (data) {
+git.stdout.on('data', function (data) {
   console.log('g stdout: ' + data);
 });
 
@@ -26,7 +26,7 @@ userEmail.stderr.on('data', function (data) {
   console.log('User email stderr: ' + data);
 });
 
-g.stderr.on('data', function (data) {
+git.stderr.on('data', function (data) {
   console.log('g stderr: ' + data);
 });
 
@@ -38,21 +38,21 @@ userEmail.on('exit', function (code) {
   console.log('User email child process exited with code ' + code);
 });
 
-g.on('exit', function (code) {
+git.on('exit', function (code) {
   console.log('ug child process exited with code ' + code);
 });
 
 // git logs, parse stdout, and use jQuery Global plugin v1.0.0pre.
 
 var spawn = require('child_process').spawn,
-g = spawn('git', ['log'])
+git = spawn('git', ['log'])
 
 // date and fr modules are jQuery.global plugins ported to node
 // date = require('./global'),
 // fr = require('./fr');
 
- 
-g.stdout.on('data', function (s) {
+
+git.stdout.on('data', function (s) {
 
   s = s.toString();
 
@@ -78,10 +78,10 @@ g.stdout.on('data', function (s) {
 
 });
 
-g.stderr.on('data', function (data) {
+git.stderr.on('data', function (data) {
   console.log('g stderr: ' + data);
 });
 
-g.on('exit', function (code) {
+git.on('exit', function (code) {
   console.log('ug child process exited with code ' + code);
 });
