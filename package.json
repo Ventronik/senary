@@ -13,7 +13,7 @@
   "author": "Dustin \"Ventronik\" Ruskell",
   "license": "ISC",
   "bin": {
-    "outside": "bin/outside"
+    "senary": "bin/senary"
   },
   "bugs": {
     "url": "https://github.com/Ventronik/gitchain/issues"
