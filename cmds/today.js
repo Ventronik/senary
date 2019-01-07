@@ -4,7 +4,6 @@ module.exports = (args) => {
 
   let world =()=> `world ${counter}`
   let greeting =()=> {
-    world()
     shell.echo(`hello ${world()}`)
   }
 
