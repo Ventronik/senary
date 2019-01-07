@@ -1,16 +1,19 @@
 module.exports = (args) => {
   var shell = require('shelljs')
-  let counter = 0
 
-  let world =()=> `world ${counter}`
-  let greeting =()=> {
-    shell.echo(`hello ${world()}`)
-  }
+  let userName = shell.exec(' time git config --get user.name').exec(`tr -d '\n'`)
 
-  while(counter < 10) {
-    counter++
-    greeting()
-  }
+  // let counter = 0
+
+  // let world =()=> `world ${counter}`
+  // let greeting =()=> {
+    // shell.echo(`hello ${world()}`)
+  // }
+
+  // while(counter < 10) {
+    // counter++
+    // greeting()
+  // }
 
 
   // var exec = require('child_process').exec, child;
