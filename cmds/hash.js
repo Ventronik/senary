@@ -28,7 +28,7 @@ shell.exec(`git reset --hard ${hash}`)
 let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
 shell.config.silent = silentState
-shell.echo(`${commitHash} ${revParse}`).exec(`tr -d '\n'`)
+shell.echo(`${commitHash} ${revParse}`)
 
 
 
