@@ -23,7 +23,7 @@ ${message()}`
   let testForZeroes = ''
 
   // while(attemptCounter < 5){
-  while(!testForZeroes){
+  while(testForZeroes != '0'){
     // shell.echo(`${commitHash()} ${testForZeroes}`)
     attemptCounter++
     let commitMessage = commit()
