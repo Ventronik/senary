@@ -21,7 +21,7 @@ ${message()}`
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
 
-  let leadingChars = /[0]{5}/
+  let leadingChars = /[0]{6}/g
   let testForZeroes = ''
 
   // while(testForZeroes != '0'){
@@ -35,7 +35,7 @@ ${message()}`
     shell.exec(`git reset --hard ${hash()}`)
     testForZeroes = commitHash().match(leadingChars)
     // testForZeroes = commitHash().slice(0,1)
-    shell.echo(`${testForZeroes}`)
+    shell.echo(`${commitHash()} ${testForZeroes}`)
   // }
   shell.config.silent = silentState
 
