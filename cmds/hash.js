@@ -21,7 +21,7 @@ ${message()}`
   let commitMessage = commit()
 // let byteNum = shell.exec(`echo "${commitMessage}"`).exec('wc -c').exec(`tr -d '\n'`)
 let leng = commitMessage.length
-shell.echo(`${byteNum}${leng}`)
+shell.echo(`${leng}`)
 // let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
 // let hash = shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
 
