@@ -3,7 +3,7 @@ module.exports = (args) => {
   var shell = require('shelljs');
 
   var silentState = shell.config.silent;
-  shell.config.silent = true;
+  // shell.config.silent = true;
 
   let attemptCounter = 0
   let userName = shell.exec('git config --get user.name').exec(`tr -d '\n'`)
@@ -33,8 +33,7 @@ ${message()}`
     testForZeroes = commitHash().slice(0,1)
     shell.echo(`${testForZeroes}`)
   // }
-  shell.config.silent = silentState
-
+  // shell.config.silent = silentState
 
   // shell.exec('git push origin master')
 }
