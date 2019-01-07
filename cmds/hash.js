@@ -1,7 +1,6 @@
 module.exports = (args) => {
+
   var shell = require('shelljs');
-  let spawn = require('child_process').spawn
-  const worker = Rusha.createWorker();
 
   var silentState = shell.config.silent;
   shell.config.silent = true;
@@ -12,7 +11,6 @@ module.exports = (args) => {
   let message =()=> `This is my commit message, attempt ${attemptCounter}`
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
   let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
-  message()
   let commit =()=>`tree ${writeTree}
 parent ${revParse}
 author ${userName} <${userEmail}>  1545187366 +0500
