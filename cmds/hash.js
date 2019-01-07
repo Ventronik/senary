@@ -34,7 +34,7 @@ commitHash = commitHash.slice(0,1)
   // attemptCounter++
 //
 // }
-shell.echo(`${commit()}${message}`)
+shell.echo(`${hashToSubmit}${message}`)
 
 
 
