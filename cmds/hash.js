@@ -20,7 +20,7 @@ committer Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
 ${message()}`
 
 
-  let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
+  let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
   let testForZeroes =()=> commitHash.slice(0,1)
 
@@ -33,6 +33,7 @@ ${message()}`
     }
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
+    commitHash()
     shell.echo(`${testForZeroes()}`)
   }
   shell.config.silent = silentState
