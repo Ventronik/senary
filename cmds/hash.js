@@ -29,11 +29,11 @@ ${message()}`
   let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
   shell.config.silent = silentState
-  let test = commitHash.slice(0,1)
+  let testForZeroes = commitHash.slice(0,1)
 
-  // while(test != '0'){
+  // while(testForZeroes != '0'){
     // attemptCounter++
-    // shell.exec(`git reset --hard ${hash}`)
+    shell.exec(`git reset --hard ${hash}`)
   // }
 shell.echo(`${commitHash}`)
 
