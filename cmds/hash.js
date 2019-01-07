@@ -18,12 +18,6 @@ author Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
 committer Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
 
 ${message()}`
-  let commitMessage = commit()
-  let byteNum = commitMessage.length
-  let hashToSubmit =()=> {
-    commit()
-    shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)}
-  let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
 
 
   let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
@@ -33,9 +27,14 @@ ${message()}`
 
   while(testForZeroes != '0'){
     attemptCounter++
-    shell.exec(`git reset --hard ${hash()}`)
+    let commitMessage = commit()
+    shell.echo(`${commitMessage}`)
+    // let byteNum = commitMessage.length
+    // let hashToSubmit =()=> {
+      // shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)}
+      // let hash =()=> shell.exec(`echo "${commitMessage()}"`).exec(`git hash-object -t commit -w --stdin`)
+    // shell.exec(`git reset --hard ${hash()}`)
   }
-// shell.echo(`${commitHash}`)
 
 
 }
