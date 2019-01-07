@@ -39,5 +39,6 @@ ${message()}`
   }
   shell.config.silent = silentState
 
+
   // shell.exec('git push origin master')
 }
