@@ -31,7 +31,7 @@ ${message()}`
     let hashToSubmit =()=> {
       shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     }
-    let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
+    let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
     shell.echo(`${testForZeroes()}`)
   }
