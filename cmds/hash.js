@@ -19,7 +19,7 @@ committer Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
 
 ${message()}`
   let commitMessage = commit()
-let byteNum = shell.exec(`echo "${commitMessage}"`).exec('wc -c').exec(`tr -d '\n'`)
+// let byteNum = shell.exec(`echo "${commitMessage}"`).exec('wc -c').exec(`tr -d '\n'`)
 let leng = commitMessage.length
 shell.echo(`${byteNum}${leng}`)
 // let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
