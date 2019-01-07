@@ -18,9 +18,7 @@ committer ${userName} <${userEmail}>  1545187366 +0500
 
 ${message()}`
 
-
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
-
   let testForZeroes = ''
 
   while(testForZeroes != '0'){
@@ -36,8 +34,6 @@ ${message()}`
     shell.echo(`${testForZeroes}`)
   }
   shell.config.silent = silentState
-    // shell.echo(`${testForZeroes}`)
-
 
   shell.exec('git push origin master')
 }
