@@ -1,6 +1,7 @@
 module.exports = (args) => {
   var shell = require('shelljs');
   let spawn = require('child_process').spawn
+  const worker = Rusha.createWorker();
 
   var silentState = shell.config.silent;
   shell.config.silent = true;
@@ -24,7 +25,6 @@ ${message()}`
 
   let testForZeroes = ''
 
-  while(attemptCounter < 10){
   // while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
@@ -39,7 +39,7 @@ ${message()}`
   // }
   shell.config.silent = silentState
     // shell.echo(`${testForZeroes}`)
-}
+
 
   // shell.exec('git push origin master')
 }
