@@ -20,8 +20,6 @@ ${message()}`
 
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
-
-  // let leadingChars = /^[0]{1}/g
   let testForZeroes = ''
 
   while(attemptCounter < 5){
@@ -35,8 +33,8 @@ ${message()}`
     }
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
-    // testForZeroes = commitHash().match(leadingChars)
-    testForZeroes = commitHash().slice(0,1)
+    commitHash().grep('GLOBAL_VARIABL', `^[0]{6}`)
+    // testForZeroes = commitHash().slice(0,1)
     shell.echo(`${commitHash()} ${testForZeroes}`)
   }
   shell.config.silent = silentState
