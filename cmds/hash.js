@@ -31,11 +31,11 @@ ${message()}`
   shell.config.silent = silentState
   let testForZeroes = commitHash.slice(0,1)
 
-  // while(testForZeroes != '0'){
-    // attemptCounter++
+  while(testForZeroes != '0'){
+    attemptCounter++
     shell.exec(`git reset --hard ${hash()}`)
-  // }
-shell.echo(`${commitHash}`)
+  }
+// shell.echo(`${commitHash}`)
 
 
 }
