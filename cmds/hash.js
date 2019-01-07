@@ -24,7 +24,8 @@ ${message()}`
   let leadingChars = /^[0]{1}/g
   let testForZeroes = ''
 
-  while(!testForZeroes){
+  while(attemptCounter < 5)
+  // while(!testForZeroes){
     shell.echo(`${commitHash()} ${testForZeroes}`)
     attemptCounter++
     let commitMessage = commit()
