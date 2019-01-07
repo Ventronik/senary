@@ -28,8 +28,8 @@ ${message()}`
   while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
-    shell.echo(`${commitMessage}`)
-    // let byteNum = commitMessage.length
+    let byteNum = commitMessage.length
+    shell.echo(`${byteNum}`)
     // let hashToSubmit =()=> {
       // shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)}
       // let hash =()=> shell.exec(`echo "${commitMessage()}"`).exec(`git hash-object -t commit -w --stdin`)
