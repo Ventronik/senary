@@ -24,7 +24,6 @@ ${message()}`
 
   // while(attemptCounter < 5){
   while(testForZeroes != '0'){
-    // shell.echo(`${commitHash()} ${testForZeroes}`)
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
