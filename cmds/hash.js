@@ -8,10 +8,10 @@ module.exports = (args) => {
   let attemptCounter = 0
   let userName = shell.exec('git config --get user.name').exec(`tr -d '\n'`)
   let userEmail = shell.exec('git config --get user.email').exec(`tr -d '\n'`)
-  let message = `This is my commit message, attempt ${attemptCounter}`
+  let message =()=> `This is my commit message, attempt ${attemptCounter}`
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
   let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
-  // message()
+  message()
   let commit =`tree ${writeTree}
 parent ${revParse}
 author Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
@@ -30,10 +30,10 @@ let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 shell.config.silent = silentState
 commitHash = commitHash.slice(0,1)
 
-while(commitHash != '0'){
-  attemptCounter++
-
-}
+// while(commitHash != '0'){
+  // attemptCounter++
+//
+// }
 shell.echo(`${commit}${commitHash}`)
 
 
