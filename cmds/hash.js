@@ -33,7 +33,7 @@ ${message()}`
 
   // while(testForZeroes != '0'){
     // attemptCounter++
-    shell.exec(`git reset --hard ${hash}`)
+    shell.exec(`git reset --hard ${hash()}`)
   // }
 shell.echo(`${commitHash}`)
 
