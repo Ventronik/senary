@@ -22,8 +22,8 @@ ${message()}`
 
   let testForZeroes = ''
 
-  while(attemptCounter < 5){
-  // while(!testForZeroes){
+  // while(attemptCounter < 5){
+  while(!testForZeroes){
     // shell.echo(`${commitHash()} ${testForZeroes}`)
     attemptCounter++
     let commitMessage = commit()
@@ -33,9 +33,9 @@ ${message()}`
     }
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
-    shell.echo(commitHash().grep('GLOBAL_VARIABL', `^[0]{6}`))
-    // testForZeroes = commitHash().slice(0,1)
-    shell.echo(`${commitHash()} ${testForZeroes}`)
+    // shell.echo(commitHash().grep('GLOBAL_VARIABL', `^[0]{6}`))
+    testForZeroes = commitHash().slice(0,1)
+    // shell.echo(`${commitHash()} ${testForZeroes}`)
   }
   shell.config.silent = silentState
 
