@@ -21,10 +21,10 @@ ${message()}`
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
 
-  let leadingChars = /[0]{6}/g
+  let leadingChars = /[0]{1}/g
   let testForZeroes = ''
 
-  // while(testForZeroes != '0'){
+  while(!testForZeroes){
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
@@ -36,7 +36,7 @@ ${message()}`
     testForZeroes = commitHash().match(leadingChars)
     // testForZeroes = commitHash().slice(0,1)
     shell.echo(`${commitHash()} ${testForZeroes}`)
-  // }
+  }
   shell.config.silent = silentState
 
   // shell.exec('git push origin master')
