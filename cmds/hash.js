@@ -19,9 +19,9 @@ committer Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
 
 ${message()}`
   commit()
-let byteNum = shell.exec(`echo "${commit}"`).exec('wc -c').exec(`tr -d '\n'`)
-let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commit}"`).exec(`sha1sum`)
-let hash = shell.exec(`echo "${commit}"`).exec(`git hash-object -t commit -w --stdin`)
+let byteNum = shell.exec(`echo "${commit()}"`).exec('wc -c').exec(`tr -d '\n'`)
+let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commit()}"`).exec(`sha1sum`)
+let hash = shell.exec(`echo "${commit()}"`).exec(`git hash-object -t commit -w --stdin`)
 
 shell.exec(`git reset --hard ${hash}`)
 
