@@ -25,7 +25,7 @@ let hash = shell.exec(`echo "${commit}"`).exec(`git hash-object -t commit -w --s
 
 shell.exec(`git reset --hard ${hash}`)
 
-let commitHash = shell.exec('git rev-parse HEAD')
+let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
 shell.config.silent = silentState
 shell.echo(`${commitHash} ${revParse}`).exec(`tr -d '\n'`)
