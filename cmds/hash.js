@@ -22,9 +22,9 @@ ${message()}`
 
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
-  let testForZeroes =()=> commitHash().slice(0,1)
+  let testForZeroes =()=> commitHash().slice(0,2)
 
-  while(testForZeroes() != '0'){
+  while(testForZeroes() != '00'){
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
