@@ -21,7 +21,7 @@ ${message()}`
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
 
-  let leadingChars = /[0]{1}/g
+  let leadingChars = /^[0]{1}/g
   let testForZeroes = ''
 
   while(!testForZeroes){
