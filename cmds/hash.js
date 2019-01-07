@@ -24,7 +24,7 @@ ${message()}`
 
   let testForZeroes = ''
 
-  while(testForZeroes != '0'){
+  // while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
@@ -35,9 +35,9 @@ ${message()}`
     shell.exec(`git reset --hard ${hash()}`)
     testForZeroes = commitHash().slice(0,1)
     shell.echo(`${testForZeroes}`)
-  }
+  // }
   shell.config.silent = silentState
-    shell.echo(`${testForZeroes}`)
+    // shell.echo(`${testForZeroes}`)
 
 
   shell.exec('git push origin master')
