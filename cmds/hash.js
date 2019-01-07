@@ -19,6 +19,9 @@ committer ${userName} <${userEmail}>  1545187366 +0500
 ${message()}`
 
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
+
+
+  let leadingChars = /[0]{5}
   let testForZeroes = ''
 
   // while(testForZeroes != '0'){
@@ -30,8 +33,9 @@ ${message()}`
     }
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
+    testForZeroes = commitHash().match(leadingChars)
     // testForZeroes = commitHash().slice(0,1)
-    // shell.echo(`${testForZeroes}`)
+    shell.echo(`${testForZeroes}`)
   // }
   shell.config.silent = silentState
 
