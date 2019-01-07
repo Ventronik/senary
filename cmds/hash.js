@@ -33,7 +33,7 @@ ${message()}`
     }
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
-    commitHash().grep('GLOBAL_VARIABL', `^[0]{6}`)
+    shell.echo(commitHash().grep('GLOBAL_VARIABL', `^[0]{6}`))
     // testForZeroes = commitHash().slice(0,1)
     shell.echo(`${commitHash()} ${testForZeroes}`)
   }
