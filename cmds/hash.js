@@ -24,7 +24,7 @@ let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commit}"`).exec(`sha1sum
 shell.config.silent = silentState
 let hash = shell.exec(`echo "${commit}"`).exec(`git hash-object -t commit -w --stdin`)
 
-// shell.exec(`git reset --hard ${hash}`)
+shell.exec(`git reset --hard ${hash}`)
 
 //let commitHash = shell.exec('git rev-parse HEAD')
 
