@@ -2,8 +2,11 @@ module.exports = (args) => {
   var shell = require('shelljs')
   let counter = 0
 
-  let world = `world ${counter}`
-  let greeting =()=> shell.echo(`hello ${world}`)
+  let world =()=> `world ${counter}`
+  let greeting =()=> {
+    world()
+    shell.echo(`hello ${world()}`)
+  }
 
   while(counter < 10) {
     counter++
