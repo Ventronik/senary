@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Ventronik/gitchain#readme",
   "dependencies": {
     "minimist": "^1.2.0",
-    "npm": "^6.5.0"
+    "npm": "^6.5.0",
+    "rusha": "^0.8.13"
   }
 }
