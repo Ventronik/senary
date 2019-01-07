@@ -1,7 +1,7 @@
 module.exports = (args) => {
   var shell = require('shelljs')
 
-  let userName = shell.exec(' time git config --get user.name').exec(`tr -d '\n'`)
+  let userName = shell.exec(' time git config --get user.name')
 
   // let counter = 0
 

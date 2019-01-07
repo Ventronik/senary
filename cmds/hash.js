@@ -12,29 +12,41 @@ module.exports = (args) => {
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
   let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
   // message()
-  let commit =()=>`tree ${writeTree}
-parent ${revParse}
-author Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
-committer Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
+//   let commit =()=>`tree ${writeTree}
+// parent ${revParse}
+// author Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
+// committer Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
+//
+// ${message()}`
+  // let commitMessage = commit()
+// let byteNum = shell.exec(`echo "${commitMessage}"`).exec('wc -c').exec(`tr -d '\n'`)
+// let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
+// let hash = shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
 
-${message()}`
-  let commitMessage = commit()
-let byteNum = shell.exec(`echo "${commitMessage}"`).exec('wc -c').exec(`tr -d '\n'`)
-let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
-let hash = shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
+// shell.exec(`git reset --hard ${hash}`)
 
-shell.exec(`git reset --hard ${hash}`)
+// let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
-let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
-
-shell.config.silent = silentState
-commitHash = commitHash.slice(0,1)
+// shell.config.silent = silentState
+// commitHash = commitHash.slice(0,1)
 
 // while(commitHash != '0'){
   // attemptCounter++
 //
 // }
-shell.echo(`${hashToSubmit}`)
+// shell.echo(`${hashToSubmit}`)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
