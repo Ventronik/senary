@@ -21,14 +21,17 @@ let byteNum = shell.exec(`echo "${commit}"`).exec('wc -c').exec(`tr -d '\n'`)
 
 let hashToSubmit = shell.exec(`echo "commit ${byteNum}${commit}"`).exec(`sha1sum`)
 
-shell.config.silent = silentState
 let hash = shell.exec(`echo "${commit}"`).exec(`git hash-object -t commit -w --stdin`)
 
-// shell.exec(`git reset --hard ${hash}`)
+shell.exec(`git reset --hard ${hash}`)
 
-//let commitHash = shell.exec('git rev-parse HEAD')
+let commitHash = shell.exec('git rev-parse HEAD')
 
-//shell.echo(`${commitHash}`)
+shell.config.silent = silentState
+shell.echo(`${commitHash} ${revParse}`).exec(`tr -d '\n'`)
+
+
+
 
 
   //
