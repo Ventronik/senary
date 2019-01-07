@@ -24,7 +24,7 @@ ${message()}`
 
   let testForZeroes = ''
 
-  while(testForZeroes() != '0'){
+  while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
