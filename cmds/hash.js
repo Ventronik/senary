@@ -24,6 +24,7 @@ ${message()}`
 
   let testForZeroes = ''
 
+  while(attemptCounter < 10){
   // while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
@@ -38,7 +39,7 @@ ${message()}`
   // }
   shell.config.silent = silentState
     // shell.echo(`${testForZeroes}`)
-
+}
 
   // shell.exec('git push origin master')
 }
