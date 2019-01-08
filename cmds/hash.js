@@ -26,6 +26,7 @@ ${message()}`;
   while(attemptCounter < 5){
   // while(testForZeroes != '00'){
     attemptCounter++
+    shell.config.silent = silentState;
     let commitMessage = commit();
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hashMaker =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`);
@@ -35,7 +36,6 @@ ${message()}`;
       shell.echo(`LOOK AT ME!!!! ${hash}`)
   }
   // shell.exec(`git reset --hard ${hash}`);
-  shell.config.silent = silentState;
 
   // shell.exec('git push origin master');
 }
