@@ -8,18 +8,20 @@ module.exports = (args) => {
   let attemptCounter = 0
   let userName = shell.exec('git config --get user.name').exec(`tr -d '\n'`)
   let userEmail = shell.exec('git config --get user.email').exec(`tr -d '\n'`)
-  let message =()=> `This is my commit message, attempt ${attemptCounter}`
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
-  let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
+  // let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
+
   let testForZeroes =''
+  let message =()=> `This is my commit message, attempt ${attemptCounter}`
+
+// KEEP FORMATTING THIS WAY ON COMMIT
   let commit =()=>`tree ${writeTree}
-parent ${revParse}
+parent ${commitHash()}
 author ${userName} <${userEmail}> 1545187366 +0500
 committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`
-
 
   while(attemptCounter < 5){
   // while(testForZeroes() != '0'){
