@@ -32,11 +32,11 @@ ${message()}`;
     hash = String(hashMaker()).slice(0, -1)//.exec(`tr -d '\n'`);
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     testForZeroes = hash.slice(0,1);
-    console.log(`${hash}`)
+    // console.log(`${hash}`)
   }
-  shell.echo(`Finished on attempt ${attemptCounter}`)
+  // shell.echo(`Finished on attempt ${attemptCounter}`)
   shell.config.silent = silentState;
   shell.exec(`git reset --hard ${hash}`);
 
-  // shell.exec('git push origin master');
+  shell.exec('git push origin master');
 }
