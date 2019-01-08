@@ -29,6 +29,7 @@ ${message()}`;
     let hashMaker =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`);
     hash = String(hashMaker()).slice(0, -1)
     testForZeroes = hash.slice(0,2);
+    console.log(hash)
   }
   shell.config.silent = silentState;
   shell.exec(`git reset --hard ${hash}`);
