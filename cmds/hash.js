@@ -9,8 +9,8 @@ module.exports = (args) => {
   let userName = shell.exec('git config --get user.name').exec(`tr -d '\n'`)
   let userEmail = shell.exec('git config --get user.email').exec(`tr -d '\n'`)
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
-  let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
-    let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
+    // let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
+  let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
   let testForZeroes =''
   let message =()=> `This is my commit message, attempt ${attemptCounter}`
@@ -34,7 +34,7 @@ shell.config.silent = silentState
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
       // shell.echo(`commit ${byteNum}${commitMessage}`)
-      shell.echo(`LOOK AT ME!!!! ${revParse}`)
+      shell.echo(`LOOK AT ME!!!! ${commitHash()}`)
   }
 
   // shell.exec('git push origin master')
