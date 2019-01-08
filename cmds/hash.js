@@ -5,7 +5,7 @@ module.exports = (args) => {
   var silentState = shell.config.silent;
   shell.config.silent = true;
 //.slice(0, -1)
-  let userName = String(shell.exec('git config --get user.name').slice(0, -1)//.exec(`tr -d '\n'`);
+  let userName = String(shell.exec('git config --get user.name')).slice(0, -1)//.exec(`tr -d '\n'`);
   let userEmail = String(shell.exec('git config --get user.email')).slice(0, -1)//.exec(`tr -d '\n'`);
   let writeTree = String(shell.exec(`git write-tree`)).slice(0, -1)//.exec(`tr -d '\n'`);
   let commitHash = String(shell.exec('git rev-parse HEAD')).slice(0, -1)//.exec(`tr -d '\n'`);
