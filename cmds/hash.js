@@ -5,10 +5,10 @@ module.exports = (args) => {
   var silentState = shell.config.silent;
   shell.config.silent = true;
 //.slice(0, -1)
-  let userName = shell.exec('git config --get user.name').exec(`tr -d '\n'`);
-  let userEmail = shell.exec('git config --get user.email').exec(`tr -d '\n'`);
-  let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`);
-  let commitHash = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`);
+  let userName = String(shell.exec('git config --get user.name').slice(0, -1)//.exec(`tr -d '\n'`);
+  let userEmail = String(shell.exec('git config --get user.email')).slice(0, -1)//.exec(`tr -d '\n'`);
+  let writeTree = String(shell.exec(`git write-tree`)).slice(0, -1)//.exec(`tr -d '\n'`);
+  let commitHash = String(shell.exec('git rev-parse HEAD')).slice(0, -1)//.exec(`tr -d '\n'`);
 
   let attemptCounter = 0;
   let message =()=> `This is my commit message, attempt ${attemptCounter}`;
