@@ -29,7 +29,7 @@ ${message()}`;
     let commitMessage = commit();
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hashMaker =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`);
-    hash = hashMaker();
+    hash = hashMaker().exec(`tr -d '\n'`);
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     testForZeroes = hash.slice(0,2);
     shell.echo(`LOOK AT ME!!!! ${hash} ${attemptCounter}`)
