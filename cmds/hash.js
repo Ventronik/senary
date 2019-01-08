@@ -25,7 +25,7 @@ shell.config.silent = silentState
 let testForZeroes =''
 
   // while(attemptCounter < 5){
-  while(testForZeroes() != '0'){
+  while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
     testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
