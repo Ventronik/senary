@@ -23,7 +23,7 @@ committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`;
 
-  while(attemptCounter < 5){
+  while(attemptCounter < 50){
   // while(testForZeroes != '00'){
     attemptCounter++
     let commitMessage = commit();
