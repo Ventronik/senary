@@ -11,6 +11,8 @@ module.exports = (args) => {
   let message =()=> `This is my commit message, attempt ${attemptCounter}`
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
   let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
+  let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
+  let testForZeroes =''
   let commit =()=>`tree ${writeTree}
 parent ${revParse}
 author ${userName} <${userEmail}> 1545187366 +0500
@@ -19,9 +21,6 @@ committer ${userName} <${userEmail}> 1545187366 +0500
 ${message()}`
 
 
-  let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
-
-  let testForZeroes =''
   while(attemptCounter < 5){
   // while(testForZeroes() != '0'){
     attemptCounter++
