@@ -1,14 +1,13 @@
 module.exports = (args) => {
   var shell = require('shelljs');
-  let spawn = require('child_process').spawn;
 
   var silentState = shell.config.silent;
   shell.config.silent = true;
 
   let userName = String(shell.exec('git config --get user.name')).slice(0, -1)//.exec(`tr -d '\n'`);
-  let userEmail = String(shell.exec('git config --get user.email')).slice(0, -1)//.exec(`tr -d '\n'`);
-  let writeTree = String(shell.exec(`git write-tree`)).slice(0, -1)//.exec(`tr -d '\n'`);
-  let commitHash = String(shell.exec('git rev-parse HEAD')).slice(0, -1)//.exec(`tr -d '\n'`);
+  let userEmail = String(shell.exec('git config --get user.email')).slice(0, -1)
+  let writeTree = String(shell.exec(`git write-tree`)).slice(0, -1)
+  let commitHash = String(shell.exec('git rev-parse HEAD')).slice(0, -1)
 
   let attemptCounter = 0;
   let message =()=> `This is my commit message, attempt ${attemptCounter}`;
@@ -22,21 +21,16 @@ author ${userName} <${userEmail}> 1545187366 +0500
 committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`;
+// End formatting adherence
 
-  // while(attemptCounter < 50){
-  while(testForZeroes != '0'){
+  while(testForZeroes != '00'){
     attemptCounter++
     let commitMessage = commit();
-      // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hashMaker =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`);
-    hash = String(hashMaker()).slice(0, -1)//.exec(`tr -d '\n'`);
-    // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
-    testForZeroes = hash.slice(0,1);
-    // console.log(`${hash}`)
+    hash = String(hashMaker()).slice(0, -1)
+    testForZeroes = hash.slice(0,2);
   }
-  // shell.echo(`Finished on attempt ${attemptCounter}`)
   shell.config.silent = silentState;
   shell.exec(`git reset --hard ${hash}`);
-
   shell.exec('git push origin master');
 }
