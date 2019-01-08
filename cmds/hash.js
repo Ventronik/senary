@@ -20,6 +20,8 @@ author ${userName} <${userEmail}> 1545187366 +0500
 committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`
+  let hash
+
 
 let testForZeroes =''
 
@@ -27,14 +29,15 @@ let testForZeroes =''
   // while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
-    shell.config.silent = silentState
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
+    hash = hash()
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     testForZeroes = hash().slice(0,1)
       shell.echo(`LOOK AT ME!!!! ${hash()}`)
   }
-  // shell.exec(`git reset --hard ${hash()}`)
+  shell.config.silent = silentState
+  // shell.exec(`git reset --hard ${hash}`)
 
   // shell.exec('git push origin master')
 }
