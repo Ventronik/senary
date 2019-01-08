@@ -10,7 +10,7 @@ module.exports = (args) => {
   let userEmail = shell.exec('git config --get user.email').exec(`tr -d '\n'`)
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
   let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
-  let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
+  // let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
   let testForZeroes =''
   let message =()=> `This is my commit message, attempt ${attemptCounter}`
@@ -28,7 +28,7 @@ ${message()}`
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
-    testForZeroes = commitHash().slice(0,1)
+    testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
