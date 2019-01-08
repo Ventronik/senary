@@ -32,7 +32,7 @@ ${message()}`;
     hash = hashMaker().exec(`tr -d '\n'`);
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     testForZeroes = hash.slice(0,2);
-    shell.echo(`LOOK AT ME!!!! ${typeof JSON.stringify(userName)} ${attemptCounter}`)
+    shell.echo(`LOOK AT ME!!!! ${typeof String(userName)} ${attemptCounter}`)
   }
   shell.config.silent = silentState;
   // shell.exec(`git reset --hard ${hash}`);
