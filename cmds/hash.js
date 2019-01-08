@@ -9,7 +9,7 @@ module.exports = (args) => {
   let userName = shell.exec('git config --get user.name').exec(`tr -d '\n'`)
   let userEmail = shell.exec('git config --get user.email').exec(`tr -d '\n'`)
   let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
-  // let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
+  let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
   let testForZeroes =''
@@ -17,7 +17,7 @@ module.exports = (args) => {
 
 // KEEP FORMATTING THIS WAY ON COMMIT
   let commit =()=>`tree ${writeTree}
-parent ${commitHash()}
+parent ${revParse}
 author ${userName} <${userEmail}> 1545187366 +0500
 committer ${userName} <${userEmail}> 1545187366 +0500
 
