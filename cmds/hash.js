@@ -23,8 +23,8 @@ committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`;
 
-  while(attemptCounter < 5){
-  // while(testForZeroes != '00'){
+  // while(attemptCounter < 5){
+  while(testForZeroes != '00'){
     attemptCounter++
     shell.config.silent = silentState;
     let commitMessage = commit();
