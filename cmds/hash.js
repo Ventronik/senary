@@ -21,13 +21,13 @@ committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`
 
-shell.config.silent = silentState
 let testForZeroes =''
 
   // while(attemptCounter < 5){
   while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
+    shell.config.silent = silentState
     testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
