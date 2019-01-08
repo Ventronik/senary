@@ -32,6 +32,7 @@ ${message()}`;
     hash = String(hashMaker()).slice(0, -1)//.exec(`tr -d '\n'`);
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     testForZeroes = hash.slice(0,1);
+    console.log('kittens')
   }
   shell.echo(`Finished on attempt ${attemptCounter}`)
   shell.config.silent = silentState;
