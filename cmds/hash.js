@@ -33,7 +33,7 @@ let testForZeroes =''
     let hashMaker =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     hash = hashMaker()
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
-    testForZeroes = hashMaker().slice(0,1)
+    testForZeroes = hash.slice(0,1)
       shell.echo(`LOOK AT ME!!!! ${hashMaker()}`)
   }
   shell.config.silent = silentState
