@@ -27,12 +27,12 @@ ${message()}`
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
-    testForZeroes = commitHash().slice(0,1)
+    testForZeroes = commitHash()[0]
     // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
     // shell.echo(`commit ${byteNum}${commitMessage}`)
-    shell.echo(`${hash()[0]}`)
+    // shell.echo(`${hash()[0]}`)
   }
   shell.config.silent = silentState
 
