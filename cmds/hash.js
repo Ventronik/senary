@@ -34,7 +34,7 @@ ${message()}`
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     // shell.exec(`git reset --hard ${hash()}`)
     shell.echo(`${hashToSubmit()}`)
-    shell.echo(`${hashToSubmit()}`).exec('`sha1sum`')
+    // shell.echo(`${hashToSubmit()}`).exec('`sha1sum`')
   }
   shell.config.silent = silentState
 
