@@ -14,8 +14,8 @@ module.exports = (args) => {
   message()
   let commit =()=>`tree ${writeTree}
 parent ${revParse}
-author Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
-committer Dan Kozlowski <koz@planetscale.com> 1545187366 +0500
+author ${userName} <${userEmail}> 1545187366 +0500
+committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`
 
@@ -33,7 +33,7 @@ ${message()}`
     }
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
-    shell.echo(`commit ${byteNum}${commitMessage}`).exec(`sha1sum`)
+    // shell.echo(`commit ${byteNum}${commitMessage}`)
     // shell.echo(`${hashToSubmit()}`).exec('`sha1sum`')
   }
   shell.config.silent = silentState
