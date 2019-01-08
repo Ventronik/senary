@@ -23,12 +23,12 @@ ${message()}`
 
 let testForZeroes =''
 
-  // while(attemptCounter < 5){
-  while(testForZeroes != '0'){
+  while(attemptCounter < 1){
+  // while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
-    shell.config.silent = silentState
     testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
+    shell.config.silent = silentState
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
