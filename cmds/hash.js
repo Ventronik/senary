@@ -36,7 +36,7 @@ ${message()}`;
   }
   shell.echo(`Finished on attempt ${attemptCounter}`)
   shell.config.silent = silentState;
-  // shell.exec(`git reset --hard ${hash}`);
+  shell.exec(`git reset --hard ${hash}`);
 
   // shell.exec('git push origin master');
 }
