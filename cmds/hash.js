@@ -23,6 +23,7 @@ committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`
 
+shell.config.silent = silentState
   while(attemptCounter < 5){
   // while(testForZeroes() != '0'){
     attemptCounter++
@@ -35,7 +36,6 @@ ${message()}`
       // shell.echo(`commit ${byteNum}${commitMessage}`)
       shell.echo(`${hash()}`)
   }
-  shell.config.silent = silentState
 
   // shell.exec('git push origin master')
 }
