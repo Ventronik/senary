@@ -23,8 +23,8 @@ committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`;
 
-  // while(attemptCounter < 5){
-  while(testForZeroes != '00'){
+  while(attemptCounter < 5){
+  // while(testForZeroes != '00'){
     attemptCounter++
     let commitMessage = commit();
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
@@ -32,7 +32,7 @@ ${message()}`;
     hash = hashMaker().exec(`tr -d '\n'`);
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     testForZeroes = hash.slice(0,2);
-    shell.echo(`LOOK AT ME!!!! ${hash} ${attemptCounter}`)
+    shell.echo(`LOOK AT ME!!!! ${typeof hash} ${attemptCounter}`)
   }
   shell.config.silent = silentState;
   // shell.exec(`git reset --hard ${hash}`);
