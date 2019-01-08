@@ -33,8 +33,8 @@ let testForZeroes =''
     let hashMaker =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     hash = hashMaker()
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
-    testForZeroes = hashMaker().slice(0,1)
-      shell.echo(`LOOK AT ME!!!! ${hashMaker()}`)
+    testForZeroes = hash.slice(0,1)
+      shell.echo(`LOOK AT ME!!!! ${hash}`)
   }
   shell.config.silent = silentState
   // shell.exec(`git reset --hard ${hash}`)
