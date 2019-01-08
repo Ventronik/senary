@@ -32,9 +32,9 @@ ${message()}`;
     hash = hashMaker();
     // testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
     testForZeroes = hash.slice(0,2);
+    shell.echo(`LOOK AT ME!!!! ${hash} ${attemptCounter}`)
   }
   shell.config.silent = silentState;
-  shell.echo(`LOOK AT ME!!!! ${hash} ${attemptCounter}`)
   // shell.exec(`git reset --hard ${hash}`);
 
   // shell.exec('git push origin master');
