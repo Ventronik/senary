@@ -32,7 +32,7 @@ let testForZeroes =''
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
-      shell.echo(`LOOK AT ME!!!! ${commitHash()}`)
+      // shell.echo(`LOOK AT ME!!!! ${commitHash()}`)
   }
 
   // shell.exec('git push origin master')
