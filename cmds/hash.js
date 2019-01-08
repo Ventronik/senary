@@ -34,7 +34,7 @@ shell.config.silent = silentState
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
     // shell.exec(`git reset --hard ${hash()}`)
       // shell.echo(`commit ${byteNum}${commitMessage}`)
-      // shell.echo(`${hash()}`)
+      shell.echo(`${message()}`)
   }
 
   // shell.exec('git push origin master')
