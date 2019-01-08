@@ -21,12 +21,13 @@ ${message()}`
 
   let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
 
-  let testForZeroes =()=> commitHash().slice(0,1)
+  let testForZeroes =''
   while(attemptCounter < 5){
   // while(testForZeroes() != '0'){
     attemptCounter++
     let commitMessage = commit()
     let byteNum = commitMessage.length
+    testForZeroes = commitHash().slice(0,1)
     // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
     let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit --stdin`)
     shell.exec(`git reset --hard ${hash()}`)
