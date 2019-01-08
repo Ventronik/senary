@@ -5,39 +5,33 @@ module.exports = (args) => {
   var silentState = shell.config.silent;
   shell.config.silent = true;
 
-  let attemptCounter = 0
-  let userName = shell.exec('git config --get user.name').exec(`tr -d '\n'`)
-  let userEmail = shell.exec('git config --get user.email').exec(`tr -d '\n'`)
-  let message =()=> `This is my commit message, attempt ${attemptCounter}`
-  let writeTree = shell.exec(`git write-tree`).exec(`tr -d '\n'`)
-  let revParse = shell.exec(`git rev-parse HEAD`).exec(`tr -d '\n'`)
+  let userName = String(shell.exec('git config --get user.name')).slice(0, -1)//.exec(`tr -d '\n'`);
+  let userEmail = String(shell.exec('git config --get user.email')).slice(0, -1)
+  let writeTree = String(shell.exec(`git write-tree`)).slice(0, -1)
+  let commitHash = String(shell.exec('git rev-parse HEAD')).slice(0, -1)
+
+  let attemptCounter = 0;
+  let message =()=> `This is my commit message, attempt ${attemptCounter}`;
+  let hash;
+  let testForZeroes ='';
+
+// KEEP FORMATTING THIS WAY! New lines in string literals is inerpreted as new lines, and tabs are registered as tabs.
   let commit =()=>`tree ${writeTree}
-parent ${revParse}
-author ${userName} <${userEmail}>  1545187366 +0500
-committer ${userName} <${userEmail}>  1545187366 +0500
+parent ${commitHash}
+author ${userName} <${userEmail}> 1545187366 +0500
+committer ${userName} <${userEmail}> 1545187366 +0500
 
-${message()}`
+${message()}`;
+// End formatting adherence
 
-  let commitHash =()=> shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`)
-
-  let testForZeroes = ''
-
-  // while(attemptCounter < 5){
-  while(testForZeroes != '0'){
+  while(testForZeroes != '000000'){
     attemptCounter++
-    let commitMessage = commit()
-    let byteNum = commitMessage.length
-    let hashToSubmit =()=> {
-      shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
-    }
-    let hash =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`)
-    shell.exec(`git reset --hard ${hash()}`)
-    // shell.echo(commitHash().grep('GLOBAL_VARIABL', `^[0]{6}`))
-    testForZeroes = commitHash().slice(0,1)
-    shell.echo(`${testForZeroes}`)
+    let commitMessage = commit();
+    let hashMaker =()=> shell.exec(`echo "${commitMessage}"`).exec(`git hash-object -t commit -w --stdin`);
+    hash = String(hashMaker()).slice(0, -1)
+    testForZeroes = hash.slice(0,6);
   }
-  shell.config.silent = silentState
-
-
-  // shell.exec('git push origin master')
+  shell.config.silent = silentState;
+  shell.exec(`git reset --hard ${hash}`);
+  shell.exec('git push origin master --force');
 }

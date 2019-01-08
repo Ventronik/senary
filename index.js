@@ -5,8 +5,8 @@ module.exports = () => {
   const cmd = args._[0]
 
   switch (cmd) {
-    case 'today':
-      require('./cmds/today')(args)
+    case 'simple':
+      require('./cmds/simple')(args)
       break
     case 'hash':
       require('./cmds/hash')(args)

@@ -43,13 +43,20 @@ You must create a program that can generate a valid commit with a hash that is p
 # References
 - https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
 
-# Gitchain Solution
-Solved with Node.js
-Npm Install
-Pick the repo?
-change the user & email?
-change the starting code?
+# Gitchain Solution - Solved with Node.js
 
-npm install
-npm link?
-senary
+#Getting started:
+* Make sure Node.JS is installed
+* ```Npm Install```
+
+#Running the Application
+
+I have made a Node.JS CLI with 2 paths: ```simple``` and ```hash```.
+
+In your command line type ```senary hash``` to execute a full run of the program. A full run will continuously rehash the commit until it reaches one that starts with six leading zeros (e.g. '000000'). I would not recommend this as it takes a very long time.
+As a sample of senary, in your command line type ```senary simple```
+
+If senary does not properly execute try running ```sym link``` from applications root folder.
+
+#Authors Note
+I really enjoyed writing this application. I have never written a CLI before and found it to be very enjoyable. Once I got the basic functionality operating in place I focused on optimizing for speed, which was also new to me. I managed to get a loop of 5 hashes down from 10seconds to 1.5 seconds. That being said, 1.5 seconds still feels entirely too long. I'd love your thoughts on better ways to improve this. I suspect JavaScript and the libraries I have used to be a factor, but am not certain on that. I look forward to talking to you.
