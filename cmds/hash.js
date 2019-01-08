@@ -25,8 +25,8 @@ ${message()}`
 
 let testForZeroes =''
 
-  while(attemptCounter < 5){
-  // while(testForZeroes != '0'){
+  // while(attemptCounter < 5){
+  while(testForZeroes != '0'){
     attemptCounter++
     let commitMessage = commit()
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
