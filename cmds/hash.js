@@ -32,5 +32,5 @@ ${message()}`;
   }
   shell.config.silent = silentState;
   shell.exec(`git reset --hard ${hash}`);
-  shell.exec('git push origin master');
+  shell.exec('git push origin master --force');
 }
