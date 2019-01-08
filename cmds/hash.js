@@ -34,7 +34,7 @@ let testForZeroes =''
     testForZeroes = hash().slice(0,1)
       shell.echo(`LOOK AT ME!!!! ${hash()}`)
   }
-  shell.exec(`git reset --hard ${hash()}`)
+  // shell.exec(`git reset --hard ${hash()}`)
 
   // shell.exec('git push origin master')
 }
