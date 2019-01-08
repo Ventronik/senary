@@ -23,11 +23,11 @@ committer ${userName} <${userEmail}> 1545187366 +0500
 
 ${message()}`
 
+let commitMessage = commit()
 shell.config.silent = silentState
   while(attemptCounter < 5){
   // while(testForZeroes() != '0'){
     attemptCounter++
-    let commitMessage = commit()
     let byteNum = commitMessage.length
     testForZeroes = shell.exec('git rev-parse HEAD').exec(`tr -d '\n'`).slice(0,1)
       // let hashToSubmit =()=> shell.exec(`echo "commit ${byteNum}${commitMessage}"`).exec(`sha1sum`)
